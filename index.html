@@ -8,11 +8,12 @@
 </head>
 <body>
     <div id="miningContainer">
-        <h2>Mining</h2>
+        <h2>Mining.js</h2>
         <div>
             <label for="networkSelect">Select Network:</label>
             <select id="networkSelect">
                 <option value="eth">Ethereum</option>
+                <option value="optimism_eth">OP </option>
             </select>
         </div>
         
@@ -26,21 +27,26 @@
         </div>
         
         <button id="startMiningButton">Start Mining</button>
-
-<!-- Tombol Auto Mining -->
-<button id="autoMineButton">⚙️ Auto Mining: OFF</button>
-
+        <button id="autoMineButton">⚙️ Auto Mining: OFF</button>
         
         <p>Status: <span id="miningStatus">Not started</span></p>
         <p>Current Balance: <span id="miningBalance">0</span> <span id="miningTicker">ETH</span></p>
         <p>Time Remaining: <span id="miningTime">0</span> seconds</p>
 
-        <!-- Include Firebase scripts -->
+        <div class="progress-bar-container">
+            <div id="miningProgressBar" class="progress-bar"></div>
+        </div>
+
+        <p>Current Block Height: <span id="blockHeightDisplay">0</span></p>
+        <p>Next Block to Mine: <span id="nextBlockIdDisplay">---</span></p>
+        
+        <p id="authStatusMessage" style="color: #ffcc00;"></p>
+
+
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-        <!-- Include your script file -->
-        <script src="mining.js"></script>
+        <script src="mining-worker.js" defer></script> <script src="mining.js"></script>
     </div>
 </body>
 </html>
