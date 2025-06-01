@@ -38,15 +38,6 @@ p, span, div {
     /* ... other responsive styles ... */
 }
 
-#authContainer, #walletContainer {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 12px;
-    background: #122537;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
 button {
     padding: 12px 25px;
     border: inset 3px black;
