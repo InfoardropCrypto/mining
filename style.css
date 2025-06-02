@@ -4,12 +4,10 @@ body {
     padding: 0;
     background: #122537;
     color: #f0f0f0;
-    word-wrap: break-word; /* This will break long words */
-    overflow-wrap: break-word; /* Modern equivalent */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-/* You might want to apply it to specific containers or elements as well,
-   especially if they have fixed widths or are within flex/grid layouts. */
 #miningContainer, #authContainer, #walletContainer {
     max-width: 600px;
     margin: 40px auto;
@@ -21,12 +19,10 @@ body {
     overflow-wrap: break-word;
 }
 
-/* For elements that might have specific `white-space` settings */
 p, span, div {
-    white-space: normal; /* Ensure default wrapping behavior */
+    white-space: normal;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     #authContainer, #walletContainer, #miningContainer {
         margin: 20px;
@@ -34,20 +30,18 @@ p, span, div {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
-
-    /* ... other responsive styles ... */
 }
 
 button {
     padding: 12px 25px;
     border: inset 3px black;
-    border-radius: 15px;
+    border-radius: 2.5px;
     background: #3b82f6;
     color: #f0f0f0;
     cursor: pointer;
-    margin: 8px 5px; /* Adjusted margin for better spacing */
+    margin: 8px 5px;
     transition: background 0.3s ease, border 0.3s ease;
-    min-width: 150px; /* Minimum width for buttons */
+    min-width: 150px;
     text-align: center;
 }
 
@@ -65,7 +59,7 @@ button:disabled {
 }
 
 #autoMineButton.auto-mining-on {
-    background: #4CAF50; /* Green background when ON */
+    background: #4CAF50;
     border-color: #388E3C;
 }
 
@@ -119,7 +113,6 @@ input[type="email"], input[type="password"], input[type="number"], input[type="t
     color: #f0f0f0;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     #authContainer, #walletContainer, #miningContainer {
     margin: 20px;
@@ -131,7 +124,7 @@ input[type="email"], input[type="password"], input[type="number"], input[type="t
     }
 
     button {
-        width: calc(100% - 10px); /* Make buttons take more width on mobile */
+        width: calc(100% - 10px);
         margin-left: 0;
         margin-right: 0;
     }
@@ -192,7 +185,7 @@ select {
     background: #2c2c2c;
     color: #f0f0f0;
     cursor: pointer;
-    margin-bottom: 10px; /* Added margin */
+    margin-bottom: 10px;
 }
 
 #miningContainer {
@@ -200,11 +193,11 @@ select {
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
-    background: #000; /* Original was #000, style.css snippet had #1e293b for other containers */
+    background: #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#miningOptions { /* This ID seems to be unused in HTML, probably meant for miningOptionsSelect */
+#miningOptions {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -332,7 +325,6 @@ details {
   visibility: visible;
 }
 
-/* Style untuk perangkat mobile */
 @media only screen and (max-width: 600px) {
   .notification {
     top: 10px;
@@ -344,23 +336,43 @@ details {
   }
 }
 
-/* Progress Bar Styles */
 .progress-bar-container {
     width: 100%;
     background-color: #555;
     border-radius: 5px;
     margin: 15px 0;
-    height: 20px; /* Explicit height */
-    overflow: hidden; /* Ensure progress bar stays within container */
+    height: 20px;
+    overflow: hidden;
 }
 
 .progress-bar {
     width: 0%;
-    height: 100%; /* Make it fill the container height */
+    height: 100%;
     background-color: #3b82f6;
     border-radius: 5px;
     transition: width 0.5s ease-in-out;
-    text-align: center; /* Optional: for text inside bar */
-    line-height: 20px; /* Optional: vertically center text */
-    color: white; /* Optional: text color */
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  overflow-x: auto;
+  
+  scroll-snap-type: x-mandatory;
+}
+
+.item {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  flex-shrink: 0;
+  color: black;
+  text-align: center;
+  
+  scroll-snap-align: center;
 }
