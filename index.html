@@ -13,7 +13,8 @@
             <label for="networkSelect">Select Network:</label>
             <select id="networkSelect">
                 <option value="eth">Ethereum</option>
-                <option value="optimism_eth">OP </option>
+                <option value="optimism_eth">OPTIMISM</option>
+                <option value="sol">SOLANA</option>
             </select>
         </div>
         
@@ -29,18 +30,24 @@
         <button id="startMiningButton">Start Mining</button>
         <button id="autoMineButton">⚙️ Auto Mining: OFF</button>
         
-        <p>Status: <span id="miningStatus">Not started</span></p>
         <p>Current Balance: <span id="miningBalance">0</span> <span id="miningTicker">ETH</span></p>
-        <p>Time Remaining: <span id="miningTime">0</span> seconds</p>
+        <p><strong>Total <span id="networkTotalTicker">ETH</span> Mined Globally:</strong> <span id="globalMinedSupply">0</span></p>
+        <p><strong>Time Remaining:</strong> <span id="miningTime">0</span>秒</p>
 
         <div class="progress-bar-container">
             <div id="miningProgressBar" class="progress-bar"></div>
         </div>
-
-        <p>Current Block Height: <span id="blockHeightDisplay">0</span></p>
-        <p>Next Block to Mine: <span id="nextBlockIdDisplay">---</span></p>
         
         <p id="authStatusMessage" style="color: #ffcc00;"></p>
+        
+        <div class="container">
+          <div class="item">
+            <p>Status: <span id="miningStatus">Not started</span></p>
+          <br>
+            Miner >> Mining >> <strong>Block<span id="blockHeightDisplay">#0#</span></strong> >> Mined >> Reward</div>
+          <div class="item" style="font-family:monospace;font-size: 0.9em;"><p>Next Block to Mine: [<span id="nextBlockIdDisplay">---</span>]</p></div>
+          <div class="item"><h2>News</h2> Now Mining.js Added Solana Network 03/JUNE/2025 BLOCK#918</div>
+        </div>
 
 
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
