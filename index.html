@@ -9,12 +9,22 @@
 <body>
     <div id="miningContainer">
         <h2>Mining.js</h2>
+
+        <div class="theme-toggle">
+            <label for="themeToggle">Light Mode:</label>
+            <input type="checkbox" id="themeToggle">
+        </div>
+        
+        <p>Miner Name: <span id="minerNameDisplay">Anonymous</span></p>
+
         <div>
             <label for="networkSelect">Select Network:</label>
             <select id="networkSelect">
                 <option value="eth">Ethereum</option>
-                <option value="optimism_eth">OPTIMISM</option>
-                <option value="sol">SOLANA</option>
+                <option value="optimism_eth">Optimism</option>
+                <option value="sol">Solana</option>
+                <option value="sui">Sui</option>
+                <option value="cosmos">Atom</option>
             </select>
         </div>
         
@@ -30,9 +40,15 @@
         <button id="startMiningButton">Start Mining</button>
         <button id="autoMineButton">⚙️ Auto Mining: OFF</button>
         
+        <div class="command-input-container">
+            <input type="text" id="commandInput" placeholder="Enter command (e.g., mining.js)">
+            <button id="runCommandButton">Run Command</button>
+            <p id="commandStatusMessage" style="color: #ffcc00; font-size: 0.9em; margin-top: 5px;"></p>
+        </div>
         <p>Current Balance: <span id="miningBalance">0</span> <span id="miningTicker">ETH</span></p>
         <p><strong>Total <span id="networkTotalTicker">ETH</span> Mined Globally:</strong> <span id="globalMinedSupply">0</span></p>
         <p><strong>Time Remaining:</strong> <span id="miningTime">0</span>秒</p>
+        <p>Hash Rate: <span id="hashRateDisplay">0 H/s</span></p>
 
         <div class="progress-bar-container">
             <div id="miningProgressBar" class="progress-bar"></div>
@@ -46,14 +62,22 @@
           <br>
             Miner >> Mining >> <strong>Block<span id="blockHeightDisplay">#0#</span></strong> >> Mined >> Reward</div>
           <div class="item" style="font-family:monospace;font-size: 0.9em;"><p>Next Block to Mine: [<span id="nextBlockIdDisplay">---</span>]</p></div>
-          <div class="item"><h2>News</h2> Now Mining.js Added Solana Network 03/JUNE/2025 BLOCK#918</div>
+          <div class="item"><h2>News</h2> Now Mining.js Added Cosmos Hub Network 8/July/2025| | Sui Network 25/JUNE/2025 |<br>| Mining.js Added Solana Network 03/JUNE/2025 </div>
         </div>
+       
 
+        <div id="miningHistoryContainer">
+            <h3>Mining History</h3>
+            <ul id="miningHistoryList">
+                </ul>
+            <button id="clearHistoryButton">Clear History</button>
+        </div>
 
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-        <script src="mining-worker.js" defer></script> <script src="mining.js"></script>
+        <script src="mining-worker.js" defer></script> 
+        <script src="mining.js"></script>
     </div>
 </body>
 </html>
