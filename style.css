@@ -2,10 +2,16 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: #122537;
+    background: white;
     color: #f0f0f0;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+    background: black;
+    color: #333;
 }
 
 #miningContainer, #authContainer, #walletContainer {
@@ -13,10 +19,18 @@ body {
     margin: 40px auto;
     padding: 30px;
     border-radius: 12px;
-    background: #122537;
+    background: #1e3a53;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     word-wrap: break-word;
     overflow-wrap: break-word;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light-mode #miningContainer, 
+body.light-mode #authContainer, 
+body.light-mode #walletContainer {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 p, span, div {
@@ -113,6 +127,15 @@ input[type="email"], input[type="password"], input[type="number"], input[type="t
     color: #f0f0f0;
 }
 
+body.light-mode input[type="email"], 
+body.light-mode input[type="password"], 
+body.light-mode input[type="number"], 
+body.light-mode input[type="text"] {
+    background: #ffffff;
+    color: #333;
+    border-color: #ccc;
+}
+
 @media (max-width: 768px) {
     #authContainer, #walletContainer, #miningContainer {
     margin: 20px;
@@ -136,10 +159,31 @@ input:focus {
     background: #333;
 }
 
+body.light-mode input:focus {
+    background: #f0f0f0;
+}
+
+
 select:hover {
     border-color: #3b82f6;
 }
 
+select {
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #2c2c2c;
+    color: #f0f0f0;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.light-mode select {
+    background: #ffffff;
+    color: #333;
+    border-color: #ccc;
+}
 
 #cryptoBalance {
     font-family: Monospace;
@@ -176,16 +220,6 @@ select:hover {
 .token-price span {
     font-weight: bold;
     color: #3b82f6;
-}
-
-select {
-    padding: 12px;
-    border: 1px solid #444;
-    border-radius: 6px;
-    background: #2c2c2c;
-    color: #f0f0f0;
-    cursor: pointer;
-    margin-bottom: 10px;
 }
 
 #miningContainer {
@@ -375,4 +409,123 @@ details {
   text-align: center;
   
   scroll-snap-align: center;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.theme-toggle label {
+    margin-right: 10px;
+}
+
+#miningHistoryContainer {
+    margin-top: 30px;
+    padding: 15px;
+    background: #1e3a53;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode #miningHistoryContainer {
+    background: #f0f0f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#miningHistoryContainer h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #60a5fa;
+}
+
+body.light-mode #miningHistoryContainer h3 {
+    color: #1a202c;
+}
+
+#miningHistoryList {
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #2c2c2c;
+}
+
+body.light-mode #miningHistoryList {
+    border-color: #ddd;
+    background: #ffffff;
+}
+
+#miningHistoryList li {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body.light-mode #miningHistoryList li {
+    border-bottom: 1px solid #eee;
+}
+
+#miningHistoryList li:last-child {
+    border-bottom: none;
+}
+
+#miningHistoryList li span {
+    font-family: monospace;
+    color: #a0aec0;
+}
+
+body.light-mode #miningHistoryList li span {
+    color: #4a5568;
+}
+
+#clearHistoryButton {
+    display: block;
+    width: fit-content;
+    margin: 15px auto 0;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#clearHistoryButton:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.command-input-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#commandInput {
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+#runCommandButton {
+    min-width: unset;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .command-input-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #commandInput {
+        width: 100%;
+    }
+    #runCommandButton {
+        width: 100%;
+    }
 }
